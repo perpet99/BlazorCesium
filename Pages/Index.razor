@@ -1,0 +1,32 @@
+﻿@page "/"
+
+@inject IJSRuntime jsRuntime
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+<div id="cesiumContainer"></div>
+
+
+@code {
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+
+        if (firstRender)
+        {
+
+
+            await jsRuntime.InvokeVoidAsync("start");
+
+
+        }
+    }
+}
